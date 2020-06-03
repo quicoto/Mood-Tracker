@@ -20,7 +20,7 @@ I'm using MysQL
 
 ## Other
 
-## Build
+### Build
 
 `npm run build` create the production ready `dist` folder
 
