@@ -2,7 +2,7 @@
 
 ## To do
 
-- [ ] BE for PHP Authentication
+- [ ] [BE for PHP Authentication](https://phppot.com/php/php-login-script-with-session/)
 - [ ] Build to create a "api/backend" folder inside the dist for easier webserver deploy
 - [ ] Use a index.php to check for the server session and avoid ajax call on load.
 - [ ] Add PWA features, so it can be installed.
