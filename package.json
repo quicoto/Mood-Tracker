@@ -1,0 +1,44 @@
+{
+  "name": "mood-tracker",
+  "version": "1.0.0",
+  "description": "Mood Tracker",
+  "scripts": {
+    "build": "NODE_ENV=production npm-run-all clean --parallel build:*",
+    "build:assets": "gulp assets",
+    "build:css": "gulp css",
+    "build:js": "gulp js",
+    "build:html": "gulp html",
+    "clean": "gulp clean",
+    "serve": "NODE_ENV=development npm-run-all clean --parallel build:* && gulp serve",
+    "watch": "NODE_ENV=development npm-run-all clean --parallel build:* && gulp watch",
+    "lint": "npm-run-all --parallel lint:*",
+    "lint:css": "stylelint './src/styles/**/*.scss'",
+    "lint:js": "eslint './src/js/**'"
+  },
+  "author": {
+    "name": "Ricard Torres",
+    "url": "https://ricard.dev"
+  },
+  "dependencies": {
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-sass": "^4.1.0",
+    "npm-run-all": "^4.1.5",
+    "webpack-stream": "^5.2.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "eslint": "^7.1.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "install": "^0.13.0",
+    "install-peerdeps": "^2.0.2",
+    "npm": "^6.14.5",
+    "stylelint": "^13.5.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-no-unsupported-browser-features": "^4.0.0",
+    "stylelint-scss": "^3.17.2"
+  },
+  "license": "MIT"
+}

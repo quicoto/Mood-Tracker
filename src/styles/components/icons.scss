@@ -1,0 +1,31 @@
+.selectionDone {
+  .icon {
+    opacity: 50%;
+  }
+}
+
+
+.icon {
+  cursor: pointer;
+  margin: 1.5rem;
+  max-width: 12.5rem;
+  transition: transform ease 0.1s;
+  width: 100%;
+
+  @media (min-width: $screen-md) {
+    margin: 3rem;
+    max-width: 20rem;
+  }
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  img {
+    pointer-events: none;
+  }
+
+  &.animateClick {
+    opacity: 1;
+  }
+}

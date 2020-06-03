@@ -1,0 +1,28 @@
+@import './common/variables.scss';
+@import './components/header.scss';
+@import './components/footer.scss';
+@import './components/icons.scss';
+
+html {
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  font-family: $font-family;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1;
+  color: $text;
+  background: $primary;
+  text-align: left; // 3
+}
+
+main {
+  justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 1080px;
+  width: 100%;
+}

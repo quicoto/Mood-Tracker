@@ -1,0 +1,12 @@
+.footer,
+.header {
+  background: $header_bg;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+}
