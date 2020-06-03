@@ -6,6 +6,17 @@
 - [ ] Build to create a "api/backend" folder inside the dist for easier webserver deploy
 - [ ] Use a index.php to check for the server session and avoid ajax call on load.
 - [ ] Add PWA features, so it can be installed.
+- [ ] Documentation
+
+## Database
+
+I'm using MysQL
+
+### User table
+
+### Moods table
+
+### Mood Type table
 
 ### Icons
 
