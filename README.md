@@ -18,6 +18,12 @@ I'm using MysQL
 
 ### Mood Type table
 
+## Other
+
+## Build
+
+`npm run build` create the production ready `dist` folder
+
 ### Icons
 
 Made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
