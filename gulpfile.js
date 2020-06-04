@@ -3,7 +3,6 @@ const gulp = require('gulp');
 const del = require('del');
 const sass = require('gulp-sass');
 const webpack = require('webpack-stream');
-const htmlmin = require('gulp-htmlmin');
 const browserSync = require('browser-sync').create();
 
 sass.compiler = require('node-sass');
@@ -23,7 +22,7 @@ paths.distApi = `${paths.dist}api/`;
 paths.distAssets = `${paths.dist}assets/`;
 paths.distCSS = `${paths.dist}css/`;
 paths.distJS = `${paths.dist}js/`;
-paths.html = `${paths.src}index.html`;
+paths.html = `${paths.src}index.php`;
 
 const sassOptions = {
   outputStyle: 'expanded'
@@ -40,7 +39,6 @@ gulp.task('clean', () => del([
 ]));
 
 gulp.task('html', () => gulp.src(paths.html)
-  .pipe(htmlmin({ collapseWhitespace: true }))
   .pipe(gulp.dest(paths.dist)));
 
 gulp.task('css', () => gulp.src(paths.stylesMain)

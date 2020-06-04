@@ -1,3 +1,12 @@
+<?php
+  session_start();
+
+  if(!empty($_SESSION["userId"])) {
+    echo "Yay! userId found";
+  } else {
+    echo "No userId";
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
