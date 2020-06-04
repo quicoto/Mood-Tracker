@@ -3,16 +3,31 @@
 ## To do
 
 - [ ] [BE for PHP Authentication](https://phppot.com/php/php-login-script-with-session/)
-- [ ] Build to create a "api/backend" folder inside the dist for easier webserver deploy
+- [ ] PHP Password encryption to DB, which method?
 - [ ] Use a index.php to check for the server session and avoid ajax call on load.
 - [ ] Add PWA features, so it can be installed.
 - [ ] Documentation
 
 ## Database
 
-I'm using MysQL
+MySQL
 
 ### User table
+
+```
+CREATE TABLE `users` (
+  `id` int(8) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `users`
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+COMMIT;
+```
 
 ### Moods table
 

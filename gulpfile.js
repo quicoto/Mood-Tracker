@@ -3,7 +3,6 @@ const gulp = require('gulp');
 const del = require('del');
 const sass = require('gulp-sass');
 const webpack = require('webpack-stream');
-const browserSync = require('browser-sync').create();
 
 sass.compiler = require('node-sass');
 
@@ -22,7 +21,7 @@ paths.distApi = `${paths.dist}api/`;
 paths.distAssets = `${paths.dist}assets/`;
 paths.distCSS = `${paths.dist}css/`;
 paths.distJS = `${paths.dist}js/`;
-paths.html = `${paths.src}index.php`;
+paths.php = `${paths.src}**/*.php`;
 
 const sassOptions = {
   outputStyle: 'expanded'
@@ -38,7 +37,7 @@ gulp.task('clean', () => del([
   'dist'
 ]));
 
-gulp.task('html', () => gulp.src(paths.html)
+gulp.task('php', () => gulp.src(paths.php)
   .pipe(gulp.dest(paths.dist)));
 
 gulp.task('css', () => gulp.src(paths.stylesMain)
@@ -55,22 +54,10 @@ gulp.task('js', () => gulp.src(paths.jsIndex)
   .pipe(gulp.dest(paths.distJS)));
 
 gulp.task('watch', () => {
-  gulp.watch(paths.html, gulp.series('html'));
+  gulp.watch(paths.php, gulp.series('php'));
   gulp.watch(`${paths.styles}**/*.scss`, gulp.series('css'));
   gulp.watch(`${paths.js}**/*.js`, gulp.series('js'));
   gulp.watch(`${paths.api}**/*.php`, gulp.series('api'));
-});
-
-gulp.task('serve', () => {
-  browserSync.init({
-    server: {
-      baseDir: paths.dist
-    }
-  });
-
-  gulp.watch(`${paths.dist}*.html`).on('change', browserSync.reload);
-  gulp.watch(`${paths.distJS}*.js`).on('change', browserSync.reload);
-  gulp.watch(`${paths.distCSS}*.css`).on('change', browserSync.reload);
 });
 
 gulp.task('assets', () => gulp.src(`${paths.assets}**/*`)

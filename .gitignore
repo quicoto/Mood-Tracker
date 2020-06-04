@@ -1,2 +1,4 @@
 node_modules
 dist
+connection.php
+src/connection.php

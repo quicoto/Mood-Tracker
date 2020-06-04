@@ -12,9 +12,8 @@
     "build:assets": "gulp assets",
     "build:css": "gulp css",
     "build:js": "gulp js",
-    "build:html": "gulp html",
+    "build:php": "gulp php",
     "clean": "gulp clean",
-    "serve": "NODE_ENV=development npm-run-all clean --parallel build:* && gulp serve",
     "watch": "NODE_ENV=development npm-run-all clean --parallel build:* && gulp watch",
     "lint": "npm-run-all --parallel lint:*",
     "lint:css": "stylelint './src/styles/**/*.scss'",
@@ -39,7 +38,6 @@
   },
   "devDependencies": {
     "@officient/readable": "^1.0.3",
-    "browser-sync": "^2.26.7",
     "eslint": "^7.1.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-plugin-import": "^2.20.2",
