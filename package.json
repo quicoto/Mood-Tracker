@@ -2,8 +2,13 @@
   "name": "mood-tracker",
   "version": "1.0.0",
   "description": "Mood Tracker",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/quicoto/Mood-Tracker.git"
+  },
   "scripts": {
     "build": "NODE_ENV=production npm-run-all clean --parallel build:*",
+    "build:api": "gulp api",
     "build:assets": "gulp assets",
     "build:css": "gulp css",
     "build:js": "gulp js",
@@ -13,7 +18,13 @@
     "watch": "NODE_ENV=development npm-run-all clean --parallel build:* && gulp watch",
     "lint": "npm-run-all --parallel lint:*",
     "lint:css": "stylelint './src/styles/**/*.scss'",
-    "lint:js": "eslint './src/js/**'"
+    "lint:js": "eslint './src/js/**'",
+    "lint:php": "phplint './src/api/**/*.php' && readable"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint"
+    }
   },
   "author": {
     "name": "Ricard Torres",
@@ -28,13 +39,16 @@
     "webpack-stream": "^5.2.1"
   },
   "devDependencies": {
+    "@officient/readable": "^1.0.3",
     "browser-sync": "^2.26.7",
     "eslint": "^7.1.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-plugin-import": "^2.20.2",
+    "husky": "^4.2.5",
     "install": "^0.13.0",
-    "install-peerdeps": "^2.0.2",
+    "install-peerdeps": "^2.0.3",
     "npm": "^6.14.5",
+    "phplint": "^2.0.1",
     "stylelint": "^13.5.0",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-no-unsupported-browser-features": "^4.0.0",

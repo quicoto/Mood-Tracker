@@ -13,11 +13,13 @@ const paths = {
   dist: './dist/'
 };
 
+paths.api = `${paths.src}api/`;
 paths.assets = `${paths.src}assets/`;
 paths.styles = `${paths.src}styles/`;
 paths.stylesMain = `${paths.styles}main.scss`;
 paths.js = `${paths.src}js/`;
 paths.jsIndex = `${paths.js}index.js`;
+paths.distApi = `${paths.dist}api/`;
 paths.distAssets = `${paths.dist}assets/`;
 paths.distCSS = `${paths.dist}css/`;
 paths.distJS = `${paths.dist}js/`;
@@ -58,6 +60,7 @@ gulp.task('watch', () => {
   gulp.watch(paths.html, gulp.series('html'));
   gulp.watch(`${paths.styles}**/*.scss`, gulp.series('css'));
   gulp.watch(`${paths.js}**/*.js`, gulp.series('js'));
+  gulp.watch(`${paths.api}**/*.php`, gulp.series('api'));
 });
 
 gulp.task('serve', () => {
@@ -74,3 +77,6 @@ gulp.task('serve', () => {
 
 gulp.task('assets', () => gulp.src(`${paths.assets}**/*`)
   .pipe(gulp.dest(paths.distAssets)));
+
+gulp.task('api', () => gulp.src(`${paths.api}**/*`)
+  .pipe(gulp.dest(paths.distApi)));
