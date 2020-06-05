@@ -10,7 +10,6 @@ if ('serviceWorker' in navigator) {
 const app = (function () {
   const CLASSES = {
     selected: 'selected',
-    hidden: 'hidden',
     selectionDone: 'selectionDone', // This class can also be found in head.php
     icon: 'icon',
     today: 'today'
@@ -63,9 +62,9 @@ const app = (function () {
    */
   function loading(status) {
     if (status === true) {
-      $.loadingContainer.classList.remove(CLASSES.hidden);
+      $.loadingContainer.removeAttribute('hidden');
     } else {
-      $.loadingContainer.classList.add(CLASSES.hidden);
+      $.loadingContainer.addAttribute('hidden');
     }
   }
 
