@@ -64,7 +64,7 @@ const app = (function () {
     if (status === true) {
       $.loadingContainer.removeAttribute('hidden');
     } else {
-      $.loadingContainer.setAttribute('hidden');
+      $.loadingContainer.setAttribute('hidden', 'true');
     }
   }
 
