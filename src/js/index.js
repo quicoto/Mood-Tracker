@@ -31,6 +31,7 @@ const app = (function () {
     $.loadingContainer = document.querySelector(SELECTOR.loadingContainer);
     $.icons = document.querySelectorAll(SELECTOR.icon);
     $.today = document.querySelector(SELECTOR.today);
+    $.notifyMe = document.querySelector(SELECTOR.notifyMe);
   }
 
   function postReaction(data = {}) {
