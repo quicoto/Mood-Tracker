@@ -7,6 +7,27 @@ if ('serviceWorker' in navigator) {
     });
 }
 
+function pushNotification() {
+  Notification('How are you feeling today?');
+}
+
+if (('Notification' in window)) {
+  // Let's check whether notification permissions have already been granted
+  if (Notification.permission === 'granted') {
+    window.setInterval(pushNotification, 15000);
+  }
+
+  // Otherwise, we need to ask the user for permission
+  if (Notification.permission !== 'denied') {
+    Notification.requestPermission().then((permission) => {
+      // If the user accepts, let's create a notification
+      if (permission === 'granted') {
+        window.setInterval(pushNotification, 15000);
+      }
+    });
+  }
+}
+
 const app = (function () {
   const CLASSES = {
     selected: 'selected',
