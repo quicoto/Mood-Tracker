@@ -19,4 +19,4 @@
 
   <link rel="stylesheet" href="./css/main.css?ver=<?=$version?>">
 </head>
-<body <?php if ($today_mood) echo 'class="selectionDone"'; ?>>
+<body>
