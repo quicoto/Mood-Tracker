@@ -50,8 +50,8 @@
       $selected = 'selected';
     }
   ?>
-    <div class="icon <?=$selected?>" data-type="<?=$row['id']?>" tabindex="-1">
-      <img tabindex="-1" src="./assets/icons/<?=$row['icon']?>.svg" alt="<?=$row['name']?>" title="I'm feeling <?=$row['name']?>">
+    <div class="icon <?=$selected?>" data-type="<?=$row['id']?>">
+      <img src="./assets/icons/<?=$row['icon']?>.svg" alt="<?=$row['name']?>" title="I'm feeling <?=$row['name']?>">
     </div>
 <?php
   }
