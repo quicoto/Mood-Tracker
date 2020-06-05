@@ -1,12 +1,6 @@
 # Mood Tracker
 
-## To do
-
-- [ ] [BE for PHP Authentication](https://phppot.com/php/php-login-script-with-session/)
-- [ ] PHP Password encryption to DB, which method?
-- [ ] Use a index.php to check for the server session and avoid ajax call on load.
-- [ ] Add PWA features, so it can be installed.
-- [ ] Documentation
+![Screenshot](https://cldup.com/oHSwdVGpPn.png)
 
 ## Code structure
 
