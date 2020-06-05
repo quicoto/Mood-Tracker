@@ -88,7 +88,9 @@ const app = (function () {
 
 
   function pushNotification() {
-    Notification('How are you feeling today?');
+    const notification = new Notification('How are you feeling today?');
+
+    return notification;
   }
 
   function addNotifications() {
