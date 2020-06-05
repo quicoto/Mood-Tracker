@@ -4,9 +4,28 @@
   color: white;
   padding: 2rem;
   text-align: center;
+}
 
-  a {
-    color: inherit;
-    text-decoration: underline;
+.footer {
+  padding: 4rem 1.5rem;
+
+  img {
+    max-width: 1.5rem;
+  }
+
+  .github {
+    display: block;
+    margin-top: 1.5rem;
+  }
+
+  @media (min-width: $screen-md) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    .github {
+      display: inline;
+    }
   }
 }

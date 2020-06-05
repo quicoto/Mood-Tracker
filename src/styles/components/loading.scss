@@ -1,0 +1,42 @@
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  &Container {
+    background: rgba(white, 0.7);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    opacity: 1;
+    transition: opacity 0.5s;
+    top: 0;
+    z-index: 2;
+
+    img {
+      animation: linear 1s infinite rotate;
+      left: 50%;
+      max-width: 15rem;
+      opacity: 1;
+      position: absolute;
+      top: 30%;
+      transform: translateX(-50%) scale(1);
+    }
+
+    &.hidden {
+      z-index: -1;
+      opacity: 0;
+
+      img {
+        opacity: 0;
+      }
+    }
+  }
+}

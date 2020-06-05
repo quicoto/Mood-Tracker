@@ -1,13 +1,17 @@
+.default-icon {
+  max-width: 50px;
+}
+
 .icon {
   cursor: pointer;
-  margin: 1.5rem;
-  max-width: 12.5rem;
+  margin: 3rem;
+  max-width: 8rem;
   transition: transform ease 0.1s;
   width: 100%;
 
   @media (min-width: $screen-md) {
     margin: 3rem;
-    max-width: 20rem;
+    max-width: 10rem;
   }
 
   &:hover {
@@ -18,8 +22,8 @@
     pointer-events: none;
   }
 
-  &.animateClick {
-    opacity: 1;
+  &.selected {
+    opacity: 1 !important;
   }
 }
 

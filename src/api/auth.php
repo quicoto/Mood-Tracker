@@ -4,12 +4,45 @@
  * @author Ricard Torres
  */
 
-// Get the current request
 $request = $_SERVER['REQUEST_METHOD'];
-$output = array();
 
-include('../connection.php'); // This file is not in git repo
+function redirect() {
+  header("Location: ../");
+}
 
-if (password_verify($submited_password, $db_password)) {
-  // Password correct
-};
+if ($_SERVER['REQUEST_METHOD'] !== "POST") {
+  redirect();
+}
+
+if (!$_POST['username'] || !$_POST['password']) {
+  redirect();
+}
+
+if ($_POST['username'] === "" || $_POST['password'] === "") {
+  redirect();
+}
+
+include('../../connection.php'); // This file is not in git repo
+
+// Check if the user exists
+$check_user = 'SELECT * FROM users where username = "' . $mysqli->real_escape_string($_POST['username']) . '" LIMIT 0,1';
+
+if(!$result = $mysqli->query($check_user)){
+  // No user found
+  echo "Error";
+}
+
+$rows = $result->fetch_assoc();
+
+if (!$rows) {
+  header("Location: ../login.php?error=true");
+}
+
+// Check if the password matches
+if (password_verify($_POST['password'], $rows['password'])) {
+  session_start();
+  $_SESSION["userId"] = $rows['id'];
+  redirect();
+} else {
+  header("Location: ../login.php?error=true");
+}

@@ -1,0 +1,176 @@
+/* stylelint-disable no-descending-specificity */
+.card {
+  background: $white;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin: 0 1.5rem;
+  padding: 60px 0 40px 0;
+  position: relative;
+  transition: all 0.3s ease;
+
+  /* Inputs */
+  .input-container {
+    margin: 0 60px 50px;
+    position: relative;
+
+    &--error {
+      color: $error;
+      text-align: center;
+
+      img {
+        display: block;
+        margin: 0 auto 20px;
+      }
+    }
+
+    input {
+      background: none;
+      border: 0;
+      font-size: 24px;
+      font-weight: 400;
+      height: 60px;
+      outline: none;
+      position: relative;
+      width: 100%;
+      z-index: 1;
+
+      &:focus {
+        ~ label {
+          transform: translate(-12%, -50%) scale(0.75);
+        }
+
+        ~ .bar {
+          &::before,
+          &::after {
+            width: 50%;
+          }
+        }
+      }
+
+      &:valid {
+        ~ label {
+          color: #9d9d9d;
+          transform: translate(-12%, -80%) scale(0.75);
+        }
+      }
+    }
+
+    label {
+      color: #757575;
+      font-size: 24px;
+      font-weight: 300;
+      left: 0;
+      line-height: 60px;
+      position: absolute;
+      top: 0;
+      transition: all 0.2s ease;
+    }
+
+    .bar {
+      background: #757575;
+      bottom: 0;
+      height: 1px;
+      left: 0;
+      position: absolute;
+      width: 100%;
+
+      &::before,
+      &::after {
+        background: $primary;
+        content: '';
+        height: 2px;
+        position: absolute;
+        transition: 0.2s ease;
+        width: 0;
+      }
+
+      &::before {
+        left: 50%;
+      }
+
+      &::after {
+        right: 50%;
+      }
+    }
+  }
+
+  /* Button */
+  .button-container {
+    margin: 0 40px;
+    text-align: center;
+
+    button {
+      background: 0;
+      border: 2px solid #e3e3e3;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1;
+      outline: 0;
+      overflow: hidden;
+      padding: 20px 0;
+      position: relative;
+      text-transform: uppercase;
+      transition: 0.3s ease;
+      width: 100%;
+
+      span {
+        color: #ddd;
+        position: relative;
+        transition: 0.3s ease;
+        z-index: 1;
+      }
+
+      &::before {
+        background: $primary;
+        border-radius: 100%;
+        content: '';
+        display: block;
+        height: 30px;
+        left: 50%;
+        margin: -1.5rem 0 0 -1.5rem;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        transition: 0.3s ease;
+        width: 30px;
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        border-color: $primary;
+
+        span {
+          color: $primary;
+        }
+      }
+
+      &:active,
+      &:focus {
+        span {
+          color: $white;
+        }
+
+        &::before {
+          opacity: 1;
+          transform: scale(10);
+        }
+      }
+    }
+  }
+}
+
+.container {
+  margin: 1.5rem auto;
+  max-width: 460px;
+  position: relative;
+  width: 100%;
+
+  @media (min-width: $screen-md) {
+    margin: 50px auto;
+  }
+}
+
+/* stylelint-enable */
