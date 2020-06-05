@@ -7,27 +7,6 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-function pushNotification() {
-  Notification('How are you feeling today?');
-}
-
-if (('Notification' in window)) {
-  // Let's check whether notification permissions have already been granted
-  if (Notification.permission === 'granted') {
-    window.setInterval(pushNotification, 15000);
-  }
-
-  // Otherwise, we need to ask the user for permission
-  if (Notification.permission !== 'denied') {
-    Notification.requestPermission().then((permission) => {
-      // If the user accepts, let's create a notification
-      if (permission === 'granted') {
-        window.setInterval(pushNotification, 15000);
-      }
-    });
-  }
-}
-
 const app = (function () {
   const CLASSES = {
     selected: 'selected',
@@ -38,6 +17,7 @@ const app = (function () {
     selected: `.${CLASSES.selected}`,
     icon: `.${CLASSES.icon}`,
     loadingContainer: '.loadingContainer',
+    notifyMe: '.notifyMe',
     today: `.${CLASSES.today}`
   };
   const $ = {};
@@ -105,10 +85,35 @@ const app = (function () {
     event.target.classList.add(CLASSES.selected);
   }
 
+
+  function pushNotification() {
+    Notification('How are you feeling today?');
+  }
+
+  function addNotifications() {
+    if (('Notification' in window)) {
+      // Let's check whether notification permissions have already been granted
+      if (Notification.permission === 'granted') {
+        window.setInterval(pushNotification, 15000);
+      }
+
+      // Otherwise, we need to ask the user for permission
+      if (Notification.permission !== 'denied') {
+        Notification.requestPermission().then((permission) => {
+          // If the user accepts, let's create a notification
+          if (permission === 'granted') {
+            window.setInterval(pushNotification, 15000);
+          }
+        });
+      }
+    }
+  }
+
   function addEventListeners() {
     $.icons.forEach(($icon) => {
       $icon.addEventListener('click', onClickIcon);
     });
+    $.notifyMe.addEventListener('click', addNotifications);
   }
 
   function setToday() {
