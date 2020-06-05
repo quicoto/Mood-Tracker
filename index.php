@@ -26,7 +26,7 @@
   }
 ?>
 <?php include ('./templates/head.php'); ?>
-<div class="loadingContainer hidden">
+<div class="loadingContainer" hidden>
   <img src="./assets/icons/005.svg" alt="Loading">
 </div>
 <header class="header">
