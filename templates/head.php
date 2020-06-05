@@ -17,6 +17,6 @@
   <meta name="msapplication-config" content="./assets/favicons/browserconfig.xml">
   <meta name="theme-color" content="#3498db">
 
-  <link rel="stylesheet" href="./css/main.css?ver=1.0.2">
+  <link rel="stylesheet" href="./css/main.css?ver=<?=$version?>">
 </head>
 <body <?php if ($today_mood) echo 'class="selectionDone"'; ?>>
