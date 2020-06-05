@@ -17,7 +17,7 @@
     "theme_color": "#3498db",
     "background_color": "#3498db",
     "display": "standalone",
-    "start_url": "/",
+    "start_url": "/mood-tracker/dist/",
     "serviceworker": {
         "src": "./js/sw.js",
         "scope": "/",
