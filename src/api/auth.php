@@ -27,7 +27,8 @@ include('../../connection.php'); // This file is not in git repo
 // Check if the user exists
 $check_user = 'SELECT * FROM users where username = "' . $mysqli->real_escape_string($_POST['username']) . '" LIMIT 0,1';
 
-if(!$result = $mysqli->query($check_user)){
+$result = $mysqli->query($check_user);
+if(!$result){
   // No user found
   echo "Error";
 }

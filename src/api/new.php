@@ -20,7 +20,8 @@ if ($request == 'POST' && $_SESSION['userId']) {
   // Check if we've already added the mood for today
   $todays_mood_query = 'SELECT * FROM moods where user = '.$_SESSION['userId'].' AND  date = CURDATE()';
 
-  if(!$result = $mysqli->query($todays_mood_query)){
+  $result = $mysqli->query($todays_mood_query);
+  if(!$result){
     http_response_code(500);
     die('There was an error running the query.');
   }
