@@ -30,7 +30,7 @@
   <img src="./assets/icons/005.svg" alt="Loading">
 </div>
 <header class="header">
-  <h1>How are you feeling today <em><?=$username?></em> ?</h1>
+  <h1>How are you feeling today?</h1>
   <h2 class="today"></h2>
 </header>
 <main class="app">
