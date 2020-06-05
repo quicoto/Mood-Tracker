@@ -32,7 +32,6 @@
 <header class="header">
   <h1>How are you feeling today <em><?=$username?></em> ?</h1>
   <h2 class="today"></h2>
-  <div class="notifyMe">Please notify me</div>
 </header>
 <main class="app">
 <?php
