@@ -1,11 +1,26 @@
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .default-icon {
   max-width: 50px;
 }
 
 .icon {
   cursor: pointer;
-  margin: 3rem;
+  margin: 2rem;
   max-width: 8rem;
+  padding: 1rem;
   position: relative;
   transition: transform ease 0.1s;
   width: 100%;
@@ -22,18 +37,25 @@
   img {
     pointer-events: none;
   }
-}
 
-.selectionDone {
-  .icon:not(.selected) {
-    &::before {
-      background: green;
+  &.selected {
+    --borderWidth: 3px;
+
+    position: relative;
+    border-radius: var(--borderWidth);
+
+    &::after {
+      animation: animatedgradient 3s ease alternate infinite;
+      background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+      background-size: 300% 300%;
+      border-radius: calc(2 * var(--borderWidth));
       content: '';
-      height: 100%;
-      left: 0;
+      height: calc(100% + var(--borderWidth) * 2);
+      left: calc(-1 * var(--borderWidth));
       position: absolute;
-      top: 0;
-      width: 100%;
+      top: calc(-1 * var(--borderWidth));
+      width: calc(100% + var(--borderWidth) * 2);
+      z-index: -1;
     }
   }
 }

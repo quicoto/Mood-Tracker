@@ -10,7 +10,6 @@ if ('serviceWorker' in navigator) {
 const app = (function () {
   const CLASSES = {
     selected: 'selected',
-    selectionDone: 'selectionDone', // This class can also be found in head.php
     icon: 'icon',
     today: 'today'
   };
@@ -83,7 +82,6 @@ const app = (function () {
       });
 
     event.target.classList.add(CLASSES.selected);
-    document.body.classList.add(CLASSES.selectionDone);
   }
 
   function addEventListeners() {
