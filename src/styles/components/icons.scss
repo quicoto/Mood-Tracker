@@ -22,13 +22,15 @@
     pointer-events: none;
   }
 
-  &.selected {
+  &.selected,
+  &.selected img {
     opacity: 1 !important;
   }
 }
 
 .selectionDone {
-  .icon {
+  .icon,
+  .icon img {
     opacity: 50%;
   }
 }
