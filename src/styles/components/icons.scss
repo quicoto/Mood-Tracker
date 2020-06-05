@@ -36,6 +36,8 @@
 
   img {
     pointer-events: none;
+    -moz-user-select: none;
+    user-select: none;
   }
 
   &.selected {
