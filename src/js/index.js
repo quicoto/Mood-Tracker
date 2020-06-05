@@ -24,6 +24,10 @@ const app = (function () {
   const _ = {
     api: {
       new: './api/new.php'
+    },
+    notifications: {
+      hourOfDay: 21,
+      interval: 2700000
     }
   };
 
@@ -88,6 +92,9 @@ const app = (function () {
 
 
   function pushNotification() {
+    const now = new Date();
+    if (now.getHours() !== _.notifications.hourOfDay) return false;
+
     const notification = new Notification('How are you feeling today?');
 
     return notification;
@@ -97,7 +104,7 @@ const app = (function () {
     if (('Notification' in window)) {
       // Let's check whether notification permissions have already been granted
       if (Notification.permission === 'granted') {
-        window.setInterval(pushNotification, 15000);
+        window.setInterval(pushNotification, _.notifications.interval);
       }
 
       // Otherwise, we need to ask the user for permission
@@ -105,7 +112,7 @@ const app = (function () {
         Notification.requestPermission().then((permission) => {
           // If the user accepts, let's create a notification
           if (permission === 'granted') {
-            window.setInterval(pushNotification, 15000);
+            window.setInterval(pushNotification, _.notifications.interval);
           }
         });
       }
