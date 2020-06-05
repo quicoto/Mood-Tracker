@@ -69,6 +69,7 @@ const app = (function () {
   }
 
   function onClickIcon(event) {
+    event.preventDefault();
     loading(true);
     removeSelected();
 
