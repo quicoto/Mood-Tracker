@@ -6,6 +6,7 @@
   cursor: pointer;
   margin: 3rem;
   max-width: 8rem;
+  position: relative;
   transition: transform ease 0.1s;
   width: 100%;
 
@@ -21,16 +22,18 @@
   img {
     pointer-events: none;
   }
-
-  &.selected,
-  &.selected img {
-    opacity: 1 !important;
-  }
 }
 
 .selectionDone {
-  .icon,
-  .icon img {
-    opacity: 50%;
+  .icon:not(.selected) {
+    &::before {
+      background: green;
+      content: '';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
   }
 }
