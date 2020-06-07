@@ -27,7 +27,8 @@ const app = (function () {
     },
     notifications: {
       hourOfDay: 21,
-      interval: 600000
+      interval: 600000,
+      sent: false
     }
   };
 
@@ -94,8 +95,11 @@ const app = (function () {
   function pushNotification() {
     const now = new Date();
     if (now.getHours() !== _.notifications.hourOfDay) return false;
+    if (_.notifications.sent === true) return false;
 
     const notification = new Notification('How are you feeling today?');
+
+    _.notifications.sent = true;
 
     return notification;
   }
