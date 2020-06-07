@@ -100,11 +100,16 @@ const app = (function () {
     return notification;
   }
 
+  function setInterval() {
+    window.setInterval(pushNotification, _.notifications.interval);
+    $.notifyMe.innerText = 'All set!';
+  }
+
   function addNotifications() {
     if (('Notification' in window)) {
       // Let's check whether notification permissions have already been granted
       if (Notification.permission === 'granted') {
-        window.setInterval(pushNotification, _.notifications.interval);
+        setInterval();
       }
 
       // Otherwise, we need to ask the user for permission
@@ -112,7 +117,7 @@ const app = (function () {
         Notification.requestPermission().then((permission) => {
           // If the user accepts, let's create a notification
           if (permission === 'granted') {
-            window.setInterval(pushNotification, _.notifications.interval);
+            setInterval();
           }
         });
       }
