@@ -2,6 +2,10 @@
 
 ![Screenshot](https://cldup.com/oHSwdVGpPn.png)
 
+## Push Notifications
+
+Using the Notifications Api the app, if open, pushes you a nice reminder every day around the 21h.
+
 ## Code structure
 
 To make this work on your webserver it should look like this.

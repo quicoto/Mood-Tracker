@@ -33,7 +33,7 @@
   <h1>How are you feeling today?</h1>
   <h2 class="today"></h2>
 </header>
-<main class="app">
+<main>
 <?php
   // Query the mood types
   $icons_query = 'SELECT * FROM types';

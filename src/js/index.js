@@ -27,7 +27,7 @@ const app = (function () {
     },
     notifications: {
       hourOfDay: 21,
-      interval: 2700000
+      interval: 600000
     }
   };
 
@@ -120,16 +120,23 @@ const app = (function () {
   }
 
   function addEventListeners() {
-    $.icons.forEach(($icon) => {
-      $icon.addEventListener('click', onClickIcon);
-    });
-    $.notifyMe.addEventListener('click', addNotifications);
+    if ($.icons && $.icons.length > 0) {
+      $.icons.forEach(($icon) => {
+        $icon.addEventListener('click', onClickIcon);
+      });
+    }
+
+    if ($.notifyMe) {
+      $.notifyMe.addEventListener('click', addNotifications);
+    }
   }
 
   function setToday() {
-    const date = new Date();
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    $.today.innerText = new Intl.DateTimeFormat('en-US', options).format(date);
+    if ($.today) {
+      const date = new Date();
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      $.today.innerText = new Intl.DateTimeFormat('en-US', options).format(date);
+    }
   }
 
   function init() {
@@ -143,8 +150,4 @@ const app = (function () {
   };
 }());
 
-const $app = document.querySelector('.app');
-
-if ($app) {
-  app.init();
-}
+app.init();
