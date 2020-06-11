@@ -23,16 +23,16 @@
     <a href="index.php">Home</a>
   </header>
   <main class="stats">
-    <h2>All time reactions</h2>
-    <canvas id="allPie" class="allPie"></canvas>
     <?php
       // Check if we have an entry for today
       $all_mood_query = 'SELECT moods.type, types.icon, types.name, COUNT(moods.type) FROM moods INNER JOIN types ON moods.type=types.id where moods.user = '.$_SESSION['userId'].' GROUP BY moods.type';
       $labels = '';
       $data = '';
+      $total_count = 0;
 
       if($result = $mysqli->query($all_mood_query)){
         while ($row = $result->fetch_assoc()) {
+          $total_count += $row['COUNT(moods.type)'];
           $data .= $row['COUNT(moods.type)'].",";
           $labels .= "'".$row['name']."',";
         }
@@ -41,6 +41,8 @@
         $labels = substr($labels, 0, -1);
       }
     ?>
+    <h2>All time reactions (<?=$total_count?>)</h2>
+    <canvas id="allPie" class="allPie"></canvas>
     <script>
       const ctx = document.getElementById('allPie').getContext('2d');
       data = {
