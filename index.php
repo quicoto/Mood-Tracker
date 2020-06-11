@@ -24,6 +24,8 @@
     $rows = $result->fetch_assoc();
     $today_mood = $rows['type'];
   }
+
+  $meta_title = "Stats";
 ?>
 <?php include ('./templates/head.php'); ?>
 <div class="loadingContainer" hidden>
