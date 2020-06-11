@@ -41,6 +41,8 @@ MySQL
 
 ### User table
 
+The password needs to be created using [password_hash](https://www.php.net/manual/en/function.password-hash.php)
+
 ```
 CREATE TABLE `users` (
   `id` int(8) NOT NULL,
