@@ -45,5 +45,5 @@ if (password_verify($_POST['password'], $rows['password'])) {
   $_SESSION["userId"] = $rows['id'];
   redirect();
 } else {
-  header("Location: ../login.php?error=true");
+  header("Location: ../login.php?error=true&verufy");
 }

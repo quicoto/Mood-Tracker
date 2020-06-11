@@ -34,6 +34,7 @@
 <header class="header">
   <h1>How are you feeling today?</h1>
   <h2 class="today"></h2>
+  <a href="stats.php">Stats</a>
 </header>
 <main>
 <?php

@@ -4,50 +4,69 @@
 
   session_start();
 
-  if(!empty($_SESSION["userId"])) {
-    header("Location: ./");
+  if(empty($_SESSION["userId"])) {
+    header("Location: ./login");
   }
+
+  include('../connection.php'); // This file is not in git repo
 
   $meta_title = "Stats";
 ?>
 <?php include ('./templates/head.php'); ?>
+  <script src="./assets/libraries/Chart.min.js"></script>
   <header class="header">
     <h1 class="headerWithIcon">
-      <img src="./assets/icons/051.svg" class="default-icon d-inline-block" alt="Icon">
       <span>
-        Howdy!
+        Stats
       </span>
     </h1>
+    <a href="index.php">Home</a>
   </header>
-  <main class="login">
-    <div class="container">
-        <div class="card">
-          <form action="./api/auth.php" method="post">
-          <?php
-            if ($_GET['error']) { ?>
-            <div class="input-container input-container--error">
-              <img class="default-icon" src="./assets/icons/081.svg" alt="">
-              There was a problem with your username or password.
-            </div>
-          <?php
-            }
-          ?>
-            <div class="input-container">
-              <input type="text" name="username" id="username" required="required" />
-              <label for="username">Username</label>
-              <div class="bar"></div>
-            </div>
-            <div class="input-container">
-              <input type="password" name="password" id="password" required="required" />
-              <label for="password">Password</label>
-              <div class="bar"></div>
-            </div>
-            <div class="button-container">
-              <button type="submit"><span>Go</span></button>
-            </div>
-          </form>
-        </div>
-    </div>
+  <main class="stats">
+    <h2>All time reactions</h2>
+    <canvas id="allPie" class="allPie"></canvas>
+    <?php
+      // Check if we have an entry for today
+      $all_mood_query = 'SELECT moods.type, types.icon, types.name, COUNT(moods.type) FROM moods INNER JOIN types ON moods.type=types.id where moods.user = '.$_SESSION['userId'].' GROUP BY moods.type';
+      $labels = '';
+      $data = '';
+
+      if($result = $mysqli->query($all_mood_query)){
+        while ($row = $result->fetch_assoc()) {
+          $data .= $row['COUNT(moods.type)'].",";
+          $labels .= "'".$row['name']."',";
+        }
+
+        $data = substr($data, 0, -1);
+        $labels = substr($labels, 0, -1);
+      }
+    ?>
+    <script>
+      const ctx = document.getElementById('allPie').getContext('2d');
+      data = {
+        datasets: [{
+          data: [<?=$data?>],
+          backgroundColor: [
+						'#f9ca24',
+						'#22a6b3',
+						'#eb4d4b',
+						'#4834d4',
+						'#e056fd',
+						'#6ab04c'
+          ],
+          options: {
+            responsive: true
+          }
+        }],
+
+        labels: [<?=$labels?>]
+      };
+
+      const myPieChart = new Chart(ctx, {
+          type: 'pie',
+          data: data,
+      });
+    </script>
   </main>
 <?php include ('./templates/footer.php'); ?>
 <?php include ('./templates/foot.php'); ?>
