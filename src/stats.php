@@ -1,11 +1,14 @@
 <?php
+
+  // https://github.com/chartjs/Chart.js
+
   session_start();
 
   if(!empty($_SESSION["userId"])) {
     header("Location: ./");
   }
 
-  $meta_title = "Login";
+  $meta_title = "Stats";
 ?>
 <?php include ('./templates/head.php'); ?>
   <header class="header">

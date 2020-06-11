@@ -4,7 +4,13 @@
   <meta name="robots" content="noindex" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mood Tracker by Ricard Torres</title>
+  <title><?php
+    if ($meta_title) {
+      echo $meta_title . " - Mood Tracker";
+    } else {
+      echo "Mood Tracker by Ricard Torres";
+    }
+  ?></title>
   <meta name="description" content="Track your daily mood"/>
 
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicons/apple-touch-icon.png">
